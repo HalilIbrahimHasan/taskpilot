@@ -1,0 +1,15 @@
+---
+description: Core TaskPilot product constraints and verification expectations
+alwaysApply: true
+---
+
+# TaskPilot Core
+
+- Build only Project 01 as a real React, FastAPI, and database application.
+- Keep `pending`, `in_progress`, `completed` statuses and `low`, `medium`, `high` priorities.
+- Do not add priority filtering or reject past due dates until the deferred stories are approved.
+- Keep API routes under `/api/v1`, with `/health` at the root.
+- Use UTC-aware timestamps and calendar dates for due dates.
+- Update tests, documentation, and traceability with behavior changes.
+- Run relevant checks and report actual results.
+- Never deploy, publish, or commit secrets without explicit approval.

@@ -1,0 +1,11 @@
+flowchart TB
+  GH[GitHub Repository] --> ACTIONS[GitHub Actions CI]
+  GH -->|Blueprint / approved deploy| RENDER[Render]
+  RENDER --> STATIC[Static Site: React dist]
+  RENDER --> WEB[Web Service: FastAPI /health]
+  RENDER --> PG[(Managed PostgreSQL)]
+  BROWSER[Browser] -->|HTTPS| STATIC
+  STATIC -->|HTTPS API requests| WEB
+  WEB -->|Private DB connection| PG
+  WEB --> MIGRATE[Alembic migrations during release]
+  classDef host fill:#dbeafe,stroke:#2563eb; class STATIC,WEB,PG host;

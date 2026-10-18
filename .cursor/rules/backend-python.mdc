@@ -1,0 +1,15 @@
+---
+description: FastAPI, Pydantic, SQLAlchemy, and migration conventions
+globs: backend/**/*.py
+alwaysApply: false
+---
+
+# Backend Conventions
+
+- Separate HTTP routers, services, repositories, schemas, and ORM models.
+- Validate mutation input with Pydantic v2 and return structured errors.
+- Type all public functions and keep Ruff clean.
+- Use SQLAlchemy 2 statements and dependency-injected sessions.
+- Treat Alembic migrations as the schema source of truth.
+- Keep the current date injectable for overdue calculations.
+- Add pytest/HTTPX coverage for success, validation, and not-found behavior.

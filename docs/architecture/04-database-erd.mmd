@@ -1,0 +1,14 @@
+erDiagram
+  TASKS {
+    uuid id PK
+    varchar title
+    text description
+    varchar status
+    varchar priority
+    date due_date
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  ALEMBIC_VERSION {
+    varchar version_num PK
+  }

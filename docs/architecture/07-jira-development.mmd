@@ -1,0 +1,14 @@
+flowchart LR
+  STORY[Jira Story] --> AC[Acceptance Criteria]
+  AC --> PLAN[Cursor Plan]
+  PLAN --> CODE[Implementation]
+  CODE --> TEST[Local Tests]
+  TEST --> REVIEW[Human Review]
+  REVIEW --> PR[GitHub Pull Request]
+  PR --> CI[GitHub Actions]
+  CI --> APPROVE{Approved?}
+  APPROVE -->|No| CODE
+  APPROVE -->|Yes| DEPLOY[Render Deployment - with permission]
+  DEPLOY --> VERIFY[Smoke Checks]
+  VERIFY --> TRACE[Update Traceability]
+  classDef delivery fill:#f3e8ff,stroke:#9333ea; class STORY,PLAN,PR,DEPLOY delivery;

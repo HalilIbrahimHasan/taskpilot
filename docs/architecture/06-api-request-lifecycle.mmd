@@ -1,0 +1,18 @@
+sequenceDiagram
+  participant U as React UI
+  participant A as FastAPI
+  participant P as Pydantic
+  participant S as Task Service
+  participant D as PostgreSQL
+  U->>A: POST /api/v1/tasks
+  A->>P: Validate request
+  alt Invalid payload
+    P-->>U: 422 field errors
+  else Valid payload
+    P->>S: Typed task input
+    S->>D: INSERT via SQLAlchemy
+    D-->>S: Saved task
+    S-->>A: Task DTO
+    A-->>U: 201 JSON task
+  end
+  Note over U,D: Past due-date rejection is deferred (STORY-A).

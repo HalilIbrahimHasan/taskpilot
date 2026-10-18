@@ -1,0 +1,13 @@
+flowchart TD
+  REQ[HTTP Request] --> ROUTE[FastAPI Router]
+  ROUTE --> VALID[Pydantic Validation]
+  VALID --> SERVICE[Task / Dashboard Service]
+  SERVICE --> REPO[Repository]
+  REPO --> ORM[SQLAlchemy Session]
+  ORM --> PG[(PostgreSQL)]
+  SERVICE --> SCHEMA[Response Schema]
+  SCHEMA --> RESP[JSON Response]
+  EX[Exception Handlers] --> ERR[Structured Error]
+  ROUTE -. errors .-> EX
+  VALID -. errors .-> EX
+  classDef backend fill:#dcfce7,stroke:#16a34a; class ROUTE,VALID,SERVICE,REPO backend;

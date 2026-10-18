@@ -1,0 +1,16 @@
+flowchart TB
+  U[Student / User] -->|Browser| FE[React + Vite + TypeScript]
+  FE -->|HTTPS JSON /api/v1| API[FastAPI + Pydantic]
+  API --> ORM[SQLAlchemy]
+  ORM --> DB[(PostgreSQL)]
+  J[Jira Stories] -.-> C[Cursor AI]
+  C -.-> GH[GitHub Monorepo]
+  GH --> CI[GitHub Actions]
+  GH --> R[Render]
+  R --> FE
+  R --> API
+  R --> DB
+  classDef ui fill:#dbeafe,stroke:#2563eb,color:#1e3a8a;
+  classDef api fill:#dcfce7,stroke:#16a34a,color:#14532d;
+  classDef data fill:#fef3c7,stroke:#d97706,color:#78350f;
+  class FE,U ui; class API,ORM api; class DB data;

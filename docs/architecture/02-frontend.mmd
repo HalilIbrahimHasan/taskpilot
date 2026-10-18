@@ -1,0 +1,15 @@
+flowchart TD
+  APP[React App] --> ROUTER[React Router]
+  ROUTER --> SHELL[App Shell / Sidebar]
+  SHELL --> DASH[Dashboard Page]
+  SHELL --> TASKS[Tasks Page]
+  TASKS --> TABLE[TanStack Table]
+  TASKS --> FORM[shadcn Task Form]
+  TASKS --> DETAIL[Task Details]
+  DASH --> KPI[KPI Cards]
+  DASH --> CHART[Recharts]
+  FORM --> CLIENT[Typed Axios Client]
+  TABLE --> CLIENT
+  DASH --> CLIENT
+  CLIENT --> API[FastAPI /api/v1]
+  classDef view fill:#dbeafe,stroke:#2563eb; class APP,SHELL,DASH,TASKS,FORM,TABLE view;

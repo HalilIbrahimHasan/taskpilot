@@ -1,0 +1,18 @@
+flowchart TD
+  START([Open TaskPilot]) --> LIST[View Task List]
+  LIST --> CREATE[Create Task]
+  CREATE --> SAVE{Valid input?}
+  SAVE -->|No| ERROR[Show validation errors]
+  ERROR --> CREATE
+  SAVE -->|Yes| PENDING[Pending]
+  LIST --> OPEN[Open Existing Task]
+  OPEN --> EDIT[Edit Task]
+  EDIT --> PENDING
+  PENDING --> PROGRESS[In Progress]
+  PROGRESS --> COMPLETE[Completed]
+  COMPLETE --> PROGRESS
+  PROGRESS --> PENDING
+  OPEN --> DELETE{Delete task?}
+  DELETE -->|Confirm| LIST
+  DELETE -->|Cancel| OPEN
+  classDef state fill:#e0e7ff,stroke:#6366f1; class PENDING,PROGRESS,COMPLETE state;

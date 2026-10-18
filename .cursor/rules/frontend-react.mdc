@@ -1,0 +1,15 @@
+---
+description: React and TypeScript UI conventions for TaskPilot
+globs: frontend/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Frontend Conventions
+
+- Keep strict TypeScript and typed API contracts.
+- Use functional components, React Router, TanStack Table, and reusable UI primitives.
+- Provide loading, empty, error, and responsive states for data-driven pages.
+- Prefer semantic roles and labels; reserve stable `data-testid` values for key controls.
+- Keep keyboard focus visible and forms accessible.
+- Never replace live API data with mock application data.
+- Run ESLint, typecheck, tests, and production build after substantive changes.
