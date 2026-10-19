@@ -40,6 +40,18 @@ Open:
 - API health: http://localhost:8000/health
 - API documentation: http://localhost:8000/docs
 
+## Live deployment
+
+GitHub: https://github.com/HalilIbrahimHasan/taskpilot
+
+Verified Render URLs:
+
+- UI: https://taskpilot-web.onrender.com
+- API health: https://taskpilot-api-k11v.onrender.com/health
+- Swagger: https://taskpilot-api-k11v.onrender.com/docs
+
+The managed Postgres instance is `taskpilot-db` on Render. Free web services sleep after inactivity and may take about a minute to wake. Free Postgres expires after 30 days unless upgraded.
+
 ## Verification
 
 ```bash

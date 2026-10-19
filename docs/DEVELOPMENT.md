@@ -25,14 +25,24 @@ Run `make lint`, `make typecheck`, and `make test`. Build the production client 
 `cd frontend && npm run build`. GitHub Actions repeats these checks for pushes and
 pull requests.
 
-## Deployment checklist
+## Live deployment
 
-`render.yaml` is a draft blueprint only. Before an approved deployment:
+Verified on 19 Oct 2026:
+
+- GitHub: https://github.com/HalilIbrahimHasan/taskpilot
+- UI: https://taskpilot-web.onrender.com
+- API: https://taskpilot-api-k11v.onrender.com
+- Swagger: https://taskpilot-api-k11v.onrender.com/docs
+- Database: Render Postgres `taskpilot-db` (free, Oregon)
+
+Startup runs `alembic upgrade head` and the idempotent seed. The dashboard returned 36 seeded tasks after deploy.
+
+## Deployment checklist
 
 1. Set `CORS_ORIGINS` to a JSON list containing the frontend origin.
 2. Set `VITE_API_URL` to the public backend URL.
 3. Confirm the managed database connection is injected as `DATABASE_URL`.
-4. Verify migration and seed pre-deploy commands complete.
+4. Verify migration and seed commands complete.
 5. Check `/health`, `/docs`, task CRUD, browser reload persistence, and dashboard totals.
 
-Do not commit secrets. Do not deploy without explicit approval.
+Do not commit secrets. Rotate any API key that was shared in chat.
